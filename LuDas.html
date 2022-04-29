@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LuDas</title>
+    </head>
+    <body>
+        <script>
+         function calculaDesconto(valor) {
+             var valorVenda;
+             var descontoDez = 0.1;
+             var descontoQuinze = 0.15;
+             var descontoAplicado;
+
+             if (parseFloat(valor) < 0) {
+                 return "Valor inválido";
+             } else if (parseFloat(valor) <= 499.99) {
+                 valorVenda = valor * (1 - descontoDez);
+                 descontoAplicado = descontoDez;
+             } else {
+                 valorVenda = valor * (1 - descontoQuinze);
+                 descontoAplicado = descontoQuinze;
+             }
+             return {
+                 "desconto": descontoAplicado * 100+ "%",
+                 "valorVenda": valorVenda,
+                 "valorDesconto": valor-valorVenda
+             }
+        }   
+
+        console.log(calculaDesconto(-1));
+        console.log(calculaDesconto(498));
+        console.log(calculaDesconto(599));        
+        </script>
+    </body>
+</html>
